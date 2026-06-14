@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Karate Timeline</title>
+    <style>
+      body, html { font-family: arial, sans-serif; font-size: 11pt; }
+      #visualization { box-sizing: border-box; width: 100%; height: 300px; }
+      .vis-item.failed { background-color: #F2928C; }
+      .page-heading { padding: 0.5em; margin-bottom: 0.5em; background-color: lightcyan; border: 1px solid gray; }
+    </style>
+    <script src="res/vis.min.js"></script>
+    <link href="res/vis.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="page-heading">
+      <a href="karate-summary.html">Summary</a>
+    </div>     
+    <div id="visualization"></div>
+    <script>
+var groups = [{"content":"main","id":1}];
+var items = [{"id":1,"group":1,"content":"features\/DeleteId[1.1:21]","start":1781455946851,"end":1781455948317,"title":"features\/DeleteId[1.1:21] 11:52:26.851-11:52:28.317 Eliminar usuario válido"},{"id":2,"group":1,"content":"features\/DeleteId[2:24]","start":1781455948339,"end":1781455948787,"title":"features\/DeleteId[2:24] 11:52:28.339-11:52:28.787 Eliminar usuario con carrito"},{"id":3,"group":1,"content":"features\/ListUser[1:7]","start":1781455949118,"end":1781455949645,"title":"features\/ListUser[1:7] 11:52:29.118-11:52:29.645 Obtener lista de usuarios"},{"id":4,"group":1,"content":"features\/RegisterUser[1.1:16]","start":1781455949694,"end":1781455950123,"title":"features\/RegisterUser[1.1:16] 11:52:29.694-11:52:30.123 Registrar usuario válido","className":"failed"},{"id":5,"group":1,"content":"features\/RegisterUser[2.1:27]","start":1781455950136,"end":1781455950675,"title":"features\/RegisterUser[2.1:27] 11:52:30.136-11:52:30.675 Registrar usuario duplicado"},{"id":6,"group":1,"content":"features\/SearchId[1:7]","start":1781455950715,"end":1781455951641,"title":"features\/SearchId[1:7] 11:52:30.715-11:52:31.641 Buscar usuario por ID"},{"id":7,"group":1,"content":"features\/SearchId[2:19]","start":1781455951655,"end":1781455952195,"title":"features\/SearchId[2:19] 11:52:31.655-11:52:32.195 Buscar usuario inexistente"},{"id":8,"group":1,"content":"features\/UpdateId[1.1:22]","start":1781455952233,"end":1781455952738,"title":"features\/UpdateId[1.1:22] 11:52:32.233-11:52:32.738 Actualizar usuario válido","className":"failed"},{"id":9,"group":1,"content":"features\/UpdateId[2.1:40]","start":1781455952747,"end":1781455953174,"title":"features\/UpdateId[2.1:40] 11:52:32.747-11:52:33.174 Actualizar usuario con correo existente","className":"failed"}];
+</script>
+    <script>
+      var container = document.getElementById('visualization');
+      var timeline = new vis.Timeline(container);
+      timeline.setOptions({groupOrder: 'content'});
+      timeline.setGroups(new vis.DataSet(groups));
+      timeline.setItems(new vis.DataSet(items));
+    </script>
+  </body>
+</html>
